@@ -33,6 +33,11 @@
         infowindows = []
         markers = []
 
+        var icon = {
+            url: "<%= uri('/kakaxi_logo.png') %>", // url
+            scaledSize: new google.maps.Size(44, 49), // scaled size
+        };
+
         for (row of rows) {
           var infowindow = new google.maps.InfoWindow({
               content: '<h3>' + row[1] + ' (' + row[2] + ')' + '</h3>' +
@@ -41,7 +46,7 @@
 
           var marker = new google.maps.Marker({
             position: row[0],
-            icon: "<%= uri('/kakaxi_logo.png') %>",
+            icon: icon,
             map: map,
             title: row[1]
           });
